@@ -27,6 +27,11 @@ jobs:
         docker tag ${{ secrets.REGISTRY_LOGIN_SERVER }}/next-azure-poc:${{ github.sha }} ${{ secrets.REGISTRY_LOGIN_SERVER }}/next-azure-poc:latest
         docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/next-azure-poc:latest
     
+    - name: 'Login via Azure CLI'
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    
     - name: Enable dynamic extension install in Azure CLI
       run: az config set extension.use_dynamic_install=yes_without_prompt
       
