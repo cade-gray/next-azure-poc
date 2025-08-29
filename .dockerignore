@@ -1,0 +1,16 @@
+Dockerfile
+.dockerignore
+.next
+.git
+.gitignore
+README.md
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.env*.local
+.vercel
+*.tsbuildinfo
+next-env.d.ts
+# Don't ignore _data directory - we need it for the CSV files
+# _data

@@ -13,7 +13,7 @@ export default function Home() {
           </li>
           <li>
             <Link href="/api-demo" className="text-blue-500 hover:underline">
-              &quot;API&quot; Demo
+              API Demo
             </Link>
           </li>
         </ul>
