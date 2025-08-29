@@ -27,20 +27,14 @@ jobs:
         docker tag ${{ secrets.REGISTRY_LOGIN_SERVER }}/next-azure-poc:${{ github.sha }} ${{ secrets.REGISTRY_LOGIN_SERVER }}/next-azure-poc:latest
         docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/next-azure-poc:latest
     
-    - name: 'Login via Azure CLI'
+    - name: Log in to Azure
       uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
-    
-    - name: Enable dynamic extension install in Azure CLI
-      run: az config set extension.use_dynamic_install=yes_without_prompt
-      
-    - name: Deploy to Azure Container App
-      uses: azure/CLI@v1
+
+    - name: Deploy Container App
+      uses: azure/container-apps-deploy-action@v1
       with:
-        azcliversion: 2.30.0
-        inlineScript: |
-          az containerapp update \
-            --name ${{ secrets.CONTAINER_APP_NAME }} \
-            --resource-group ${{ secrets.RESOURCE_GROUP }} \
-            --image ${{ secrets.REGISTRY_LOGIN_SERVER }}/next-azure-poc:latest
+        imageToDeploy: ${{ secrets.REGISTRY_LOGIN_SERVER }}/next-azure-poc:latest
+        containerAppName: ${{ secrets.CONTAINER_APP_NAME }}
+        resourceGroup: ${{ secrets.RESOURCE_GROUP }}
