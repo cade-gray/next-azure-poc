@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
       >
         <header className="bg-gray-800 text-white p-4">
           <h1 className="text-4xl font-bold">
-            <Link href="/">Demo App for Next and Azure</Link>
+            <Link href="/">Cade&apos;s Demo App for Next and Azure</Link>
           </h1>
         </header>
         {children}
