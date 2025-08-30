@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
           <h1 className="text-4xl font-bold">
             <Link href="/">
               Cade&apos;s Demo App for Next With CI/CD With GitHub Actions and
-              Azure
+              Azure!
             </Link>
           </h1>
         </header>

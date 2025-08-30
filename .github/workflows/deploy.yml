@@ -42,4 +42,3 @@ jobs:
           imageToDeploy: ${{ secrets.REGISTRY_LOGIN_SERVER }}/next-azure-poc:latest
           containerAppName: ${{ secrets.CONTAINER_APP_NAME }}
           resourceGroup: ${{ secrets.RESOURCE_GROUP }}
-          revisionSuffix: ${{ github.sha }}
